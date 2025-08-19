@@ -1,0 +1,30 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Django migrations (optional, if you don’t want to track them during early dev)
+*/migrations/*
+!*/migrations/__init__.py   # Keep __init__.py so Django sees it as a package
+
+# Virtual environment
+venv/
+env/
+
+# SQLite database (if using local dev DB)
+# db.sqlite3
+
+# Media uploads (don’t commit user-uploaded files)
+media/
+
+# Static files (collected using collectstatic)
+staticfiles/
+
+# Environment variables / secrets
+.env
+*.env
+
+# IDE / editor settings
+.vscode/
+.idea/
+*.swp

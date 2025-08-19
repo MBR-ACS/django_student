@@ -1,0 +1,31 @@
+<h2>All Students</h2>
+
+<ul>
+    <li><a href="{% url 'add_student' %}">Add student</a></li>
+    <li><a href="{% url 'home' %}">go to Home page</a></li>
+</ul>
+<table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.city }}</td>
+            <td>{{ s.phone }}</td>
+            <td><a href="{% url 'edit_student' s.id%}">edit</a> |
+                <a href="{% url 'delete_student' s.id%}">delete</a>
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

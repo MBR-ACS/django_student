@@ -7,13 +7,15 @@ from apps.student.forms import StudentForm
 
 
 def student(request):
-    return HttpResponse("Hello, This is student view!")
+    '''it converts from text to html format and returns as a response'''
+    return HttpResponse("Hello, This is student related content!")
 
 def list_students(request):
-    students = Student.objects.all()
+    students = Student.objects.all() # ORM (select * from student) 
     return render(request, 'list_students.html', {'students': students})
 
 def add_student(request):
+    '''if user submits the form by clicking the subit button, the the request is 'POST' '''
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -24,6 +26,7 @@ def add_student(request):
     else:
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})
+    '''if user request to add a student , so it is GET method. then this function returns and renders the empty form.'''
 
 def edit_student(request, id):
     student = Student.objects.get(id=id)

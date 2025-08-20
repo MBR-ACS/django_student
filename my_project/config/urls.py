@@ -20,6 +20,6 @@ from menu import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.welcome, name='home'),
-    path('student/', include('apps.student.urls')),  
+    path('', views.welcome, name='home'),   # this will be executed after opening the local host / http://127.0.0.1:8000/
+    path('student/', include('apps.student.urls')),  # includes all the urls mentioned in urls.py in student module
 ]

@@ -12,5 +12,10 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        '''use this db_name so that the name in the database remains the same as the model class name, 
+        otherwise it will create like  "student_student'''''
+        db_table = 'student'
 
 

@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+'''These urls for student app only. by using this we can do CRUD operations.'''
+
 urlpatterns = [
     # path('', views.student, name='student'),
     path('studentslist/', views.list_students, name='list_students'),

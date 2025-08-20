@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-sy03$f07w+w85mu%a665m%1j%%$9_c=ri_$fe=n+3sb(h6z736
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.108.66.91']
 
 
 # Application definition
@@ -75,23 +76,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'database' /'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "django_db",
-        "USER": "root",
-        "PASSWORD": "Alladi@123",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'database' /'db.sqlite3',
     }
 }
+
+'''in this we are using python-decouple module , so all the secrets can be secured.'''
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": config('MYSQL_NAME'),
+#         "USER": config('MYSQL_USER'),
+#         "PASSWORD": config('MYSQL_PASSWORD'),
+#         "HOST": config('MYSQL_HOST', default='localhost'),
+#         "PORT": config('MYSQL_PORT', default='3306'),
+#     }
+# }
 
 
 # Password validation

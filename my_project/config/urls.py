@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_view
 from menu import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("login/", auth_view.LoginView.as_view(), name="login"),
+    path("logout/", auth_view.LogoutView.as_view(next_page="login"), name="logout"),
     path('', views.welcome, name='home'),   # this will be executed after opening the local host / http://127.0.0.1:8000/
     path('student/', include('apps.student.urls')),  # includes all the urls mentioned in urls.py in student module
 ]

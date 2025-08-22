@@ -15,6 +15,10 @@
         <li><a href="#">Contact</a></li>
     </ul>
     <hr>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
     <p>&copy; 2025 All rights reserved.</p>
 </body>
 </html>
